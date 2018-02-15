@@ -1,0 +1,11 @@
+<h1><%= @cocktail.name %></h1>
+
+<ul class="list-group">
+<% @cocktail.doses.each do |dose| %>
+<li class="list-group-item text-capitalize"><strong><%= dose.ingredient.name %> : </strong><%= dose.description %><br><%= link_to "Delete", dose_path(dose), method: :delete %></li>
+<% end %>
+</ul>
+
+
+
+<%= link_to "Ajouter un nouvel ingrédient", new_cocktail_dose_path(@cocktail) %>

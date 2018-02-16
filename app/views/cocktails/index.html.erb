@@ -1,12 +1,16 @@
-<h1>Cocktails (<%= @cocktails.length %>)</h1>
-<div class="card_container">
-  <% @cocktails.each do |cocktail| %>
-  <div class="card" style='background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url("https://source.unsplash.com/350x350/?cocktail,<%=cocktail.name %>");'>
-    <h1 class="card_content" >
-      <%= link_to cocktail.name, cocktail_path(cocktail)%>
-    </h1>
+<div class="card_page_container">
+  <h1 class="card_page_title">Cocktails</h1>
+  <div class="card_container">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail) do %>
+
+    <div class="card" style='background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url("https://source.unsplash.com/350x350/?cocktail,<%=cocktail.name %>");'>
+      <h1 class="card_content"><%= cocktail.name%></h1>
+    </div>
+    <% end  %>
+    <% end %>
   </div>
-  <% end %>
+
+  <li class="list-group-item"><strong><%= link_to "Nouveau Cocktail", new_cocktail_path%></strong></li>
 </div>
 
-<li class="list-group-item"><strong><%= link_to "Nouveau Cocktail", new_cocktail_path%></strong></li>
